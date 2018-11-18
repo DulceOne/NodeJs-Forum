@@ -10,7 +10,8 @@ exports.userCreate = (req,res) => {
 
     userModel.userCreate(user,(err,result) => {
         if(err)
-            console.error('Old erorr');
-        console.log(result);
+            res.send(err);
+        else
+            res.send(result);
     })
 }
