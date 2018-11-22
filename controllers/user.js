@@ -1,4 +1,5 @@
 const userModel = require('../models/user.js');
+
 exports.userCreate = (req,res) => {
     user = {
         name: req.body.name,
