@@ -1,6 +1,6 @@
-const db = require('../db.js');
 const mongoose = require('mongoose');
-
+const jwt = require('jsonwebtoken');
+const config = require('../config.js');
 const userShema = mongoose.Schema({
     name: {type: String, required: true},
     years: Number,
@@ -25,5 +25,24 @@ exports.userCreate =  (user,cb) => {
     })
     .catch(err => {
         console.log(err)
+    })
+}
+
+
+exports.userSignin = (user,cb) => {
+    User.findOne({name:user.name,password:user.password})
+    .then(result => {
+        if(result) {
+            const token = jwt.sign({
+                data:User.name
+            },config.jvtKey,{expiresIn: 60 * 60});
+            return cb(null,token);
+        }
+        else {
+            cb({message:"User not found"},null);
+        }
+    })
+    .catch(err => {
+       cb(err,null);
     })
 }

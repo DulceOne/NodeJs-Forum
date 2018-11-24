@@ -4,7 +4,6 @@ const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const db = require('./db');
 const port = 1337;
-var jwt = require('express-jwt');
 
 app.use(express.static(__dirname + '/'));
 app.use (bodyParser.urlencoded ({
@@ -17,6 +16,9 @@ app.use (bodyParser.json ({
 }));
 app.use(cookieParser());
 const routes = require('./routes')(app);
+app.get('/resourse',function(req,res) {
+	console.log(req.headers.authorization);
+});
 
 app.listen(port,function() {
     console.log(`server started: ${port}`);

@@ -1,16 +1,15 @@
 const controller = require('./controllers/user.js');
-const jwt = require('express-jwt');
-const jwtCheck = jwt({
-    secret: 'mymegasupernothacktopsecert322228key'
-})
-module.exports = function(app){
-    app.post('/sigup', controller.userCreate);
 
+module.exports = function(app){
+    app.post('/signup', controller.userCreate);
+    app.post('/signin', controller.userSignin);
     app.get('/resourse', (req,res) => {
         res.status(200).send("Public resourse, you can see this.");
+        // console.log(req.headers.authorization);
     })
     
-    app.get('/resourse/secret',jwtCheck,(req,res) => {
+    app.get('/resourse/secret',(req,res) => {
         res.status(200).send("Private resourse.");
+        // console.log(req.headers.authorization);
     });
 }
