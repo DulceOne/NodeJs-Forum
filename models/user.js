@@ -12,8 +12,7 @@ var User = mongoose.model('User',userShema);
 
 exports.userCreate =  (user,cb) => {
    var newUser = new User (user);
-    User
-    .findOne({name: user.name})
+    User.findOne({name: user.name})
     .then(result => {
         if(result)
             return cb(null,{message: "User with the same name exists "})

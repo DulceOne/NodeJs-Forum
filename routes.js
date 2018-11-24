@@ -1,15 +1,8 @@
-const controller = require('./controllers/user.js');
+const userController = require('./controllers/user.js');
+const threadController = require('./controllers/thread');
 
 module.exports = function(app){
-    app.post('/signup', controller.userCreate);
-    app.post('/signin', controller.userSignin);
-    app.get('/resourse', (req,res) => {
-        res.status(200).send("Public resourse, you can see this.");
-        // console.log(req.headers.authorization);
-    })
-    
-    app.get('/resourse/secret',(req,res) => {
-        res.status(200).send("Private resourse.");
-        // console.log(req.headers.authorization);
-    });
+    app.post('/signup', userController.userCreate);
+    app.post('/signin', userController.userSignin);
+    app.post('/threadCreate',threadController.threadCreate);
 }
