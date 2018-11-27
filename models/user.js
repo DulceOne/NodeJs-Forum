@@ -5,13 +5,20 @@ const userShema = mongoose.Schema({
     name: {type: String, required: true},
     years: Number,
     email: String,
+    role: String,
     password: String
 });
+
+var signOptions = {
+    expiresIn:  "12h",
+    algorithm:  "RS256"
+   };
 
 var User = mongoose.model('User',userShema);
 
 exports.userCreate =  (user,cb) => {
-   var newUser = new User (user);
+    var newUser = new User (user);
+
     User.findOne({name: user.name})
     .then(result => {
         if(result)
@@ -27,14 +34,13 @@ exports.userCreate =  (user,cb) => {
     })
 }
 
-
 exports.userSignin = (user,cb) => {
+    var newUser = new User (user);
+
     User.findOne({name:user.name,password:user.password})
     .then(result => {
         if(result) {
-            const token = jwt.sign({
-                data:User.name
-            },config.jvtKey,{expiresIn: 60 * 60});
+            var token = jwt.sign({id: newUser._id,name: newUser.name}, config.jwtKey);
             return cb(null,token);
         }
         else {
@@ -42,6 +48,7 @@ exports.userSignin = (user,cb) => {
         }
     })
     .catch(err => {
+        console.log(err)
        cb(err,null);
     })
 }

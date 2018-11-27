@@ -5,9 +5,9 @@ exports.userCreate = (req,res) => {
         name: req.body.name,
         years: req.body.years,
         email: req.body.email,
+        role: 'user',
         password: req.body.password
     }
-    console.log(user);
 
     userModel.userCreate(user,(err,result) => {
         if(err)

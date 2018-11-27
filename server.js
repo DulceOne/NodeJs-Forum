@@ -16,10 +16,6 @@ app.use (bodyParser.json ({
 }));
 app.use(cookieParser());
 const routes = require('./routes')(app);
-app.get('/resourse',function(req,res) {
-	console.log(req.headers.authorization);
-});
-
 app.listen(port,function() {
     console.log(`server started: ${port}`);
 })

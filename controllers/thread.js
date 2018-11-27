@@ -1,4 +1,4 @@
-const thredModel = require('../models/thread.js');
+const threadModel = require('../models/thread.js');
 
 exports.threadCreate = (req,res) => {
     var thread = {
@@ -8,9 +8,19 @@ exports.threadCreate = (req,res) => {
         author: req.body.author
     }
 
-    thredModel.threadCreate(thread,(err,result)=> {
+    threadModel.threadCreate(thread,(err,result) => {
         if(!err)
           return  res.status(200).send(result);
+        res.send(err);
+    })
+}
+
+exports.threadGet = (req,res) => {
+    var id = req.params.id;
+
+    threadModel.threadGet(id,(err,result) => {
+        if(!err)
+            return  res.status(200).send(result);
         res.send(err);
     })
 }
