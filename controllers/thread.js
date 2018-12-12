@@ -1,26 +1,30 @@
 const threadModel = require('../models/thread.js');
+const mongoose = require('mongoose');
+var Thread = mongoose.model('Thread',threadModel.threadShema);
 
-exports.threadCreate = (req,res) => {
+exports.threadCreate = async (req,res) => {
     var thread = {
         title: req.body.title,
         content: req.body.content,
         date: new Date,
         author: req.body.author
     }
-
-    threadModel.threadCreate(thread,(err,result) => {
-        if(!err)
-          return  res.status(200).send(result);
-        res.send(err);
-    })
+    try{
+        new Thread (thread).save();
+        res.send({message: "Thread added"});
+    }
+    catch(e){
+        res.send({error: e});
+    }
 }
 
-exports.threadGet = (req,res) => {
+exports.threadGet = async (req,res) => {
     var id = req.params.id;
-
-    threadModel.threadGet(id,(err,result) => {
-        if(!err)
-            return  res.status(200).send(result);
-        res.send(err);
+    Thread.findById({_id:id}).then(result => {
+            res.send({thred:result});
+    })
+    .catch(err => {
+        res.send({message:err});
     })
 }
+
