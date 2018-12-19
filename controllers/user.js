@@ -13,7 +13,7 @@ exports.userCreate = (req,res) => {
     userModel.findOne({name: user.name})
     .then(result => {
         if(result)
-            res.send({message: "User with the same name exists "});
+            res.send({message: "User with the same name exists"});
         new userModel(user).save()
         .then(resuser => {
             res.send({message:"Signup is successful"});
@@ -23,14 +23,14 @@ exports.userCreate = (req,res) => {
 
 exports.userSignin = (req,res) => {
     user = {
-        name: req.body.name,
+        name: req.body.login,
         password: req.body.password
     }
 
     userModel.findOne({name:user.name,password:user.password})
     .then(result => {
         if(result){
-            var token = jwt.sign({id: newUser._id,name: newUser.name}, config.jwtKey);
+            var token = jwt.sign({id: userModel._id,name: userModel.name}, config.jwtKey);
             res.send(token);
         }
         else res.send({message:"User not found"});

@@ -14,6 +14,8 @@ app.use (bodyParser.json ({
 	extended: true,
 	limit: '50mb'
 }));
+app.set('views', __dirname + '/views');
+app.set('view engine', 'ejs');
 app.use(cookieParser());
 const routes = require('./routes')(app);
 app.listen(port,function() {
