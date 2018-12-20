@@ -19,7 +19,16 @@ exports.threadCreate = (req,res) => {
 exports.threadGet = (req,res) => {
     var id = req.params.id;
     threadModel.Thread.findById({_id:id}).then(result => {
-            res.send({thred:result});
+            res.send({thraed:result});
+    })
+    .catch(err => {
+        res.send({message:err});
+    })
+}
+
+exports.threadsGet = (req,res) => {
+    threadModel.Thread.find().then(result => {
+            res.render('index.ejs',{thraeds:result});
     })
     .catch(err => {
         res.send({message:err});

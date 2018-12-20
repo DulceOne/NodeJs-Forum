@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>nodejs-forum</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&amp;subset=cyrillic,cyrillic-ext" rel="stylesheet">
     <link rel="stylesheet" type="text/css" media="screen" href="../stylesheets/main.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="../js/main.js"></script>
@@ -23,6 +24,15 @@
     </div>
     <div class="threads">
 
+        <%for(thraed of thraeds){%>
+            <div class="item">
+                <div class="logo"><img src="https://dota2.ru/img/uploads/18/10/1051827.jpg" alt=""></div>
+                <div class="wrapper">
+                    <div class="title"><%= thraed.title%></div>
+                    <div class="author">Автор: <%= thraed.author%>,<%= thraed.date%></div>
+                </div>
+            </div>
+        <%}%>
         <div class="item">
             <div class="logo"><img src="https://dota2.ru/img/uploads/18/10/1051827.jpg" alt=""></div>
             <div class="wrapper">
@@ -45,13 +55,13 @@
     <div class="modal">
         <div class="signup">
             <div class="close">X</div>
-            <input type="text" placeholder="Login">
-            <input type="email" placeholder="Email">
-            <input type="password" placeholder="Password">
-            <input type="password" placeholder="Password replace">
+            <input type="text" placeholder="Login" id="login">
+            <input type="email" placeholder="Email" id="email">
+            <input type="password" placeholder="Password" id="password">
+            <input type="password" placeholder="Password replace" id="repassword">
             <div class="signupBtn">Sign Up</div>  
         </div>
     </div>
-
+   
 </body>
 </html>

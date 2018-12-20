@@ -4,7 +4,6 @@ const config = require('../config.js');
 exports.userCreate = (req,res) => {
     user = {
         name: req.body.name,
-        years: req.body.years,
         email: req.body.email,
         role: 'user',
         password: req.body.password

@@ -4,3 +4,4 @@ config.rb
 config.js
 .sass-cache
 middleware
+ckeditor
