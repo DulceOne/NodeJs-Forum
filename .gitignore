@@ -3,5 +3,4 @@ package-lock.json
 config.rb
 config.js
 .sass-cache
-middleware
 ckeditor
