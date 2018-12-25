@@ -1,5 +1,5 @@
-const threadModel = require("../models/thread.js");
-const commentModel = require("../models/comment.js");
+const Thread = require("../models/thread.js");
+const Comment = require("../models/comment.js");
 
 exports.threadCreate = (req,res) => {
 	var thread = {
@@ -9,7 +9,7 @@ exports.threadCreate = (req,res) => {
 		author: req.body.author
 	}
 	try {
-		new threadModel.Thread(thread).save();
+		new Thread(thread).save();
 		res.send({message: "Thread added"});
 	}
 	catch (e) {
@@ -20,10 +20,10 @@ exports.threadCreate = (req,res) => {
 exports.threadGet = (req,res) => {
 	var id = req.params.id;
 	Promise.all([ 
-		threadModel.Thread.find({_id: id}).lean(), 
-		commentModel.Comment.find({threadId: id}).lean(), 
-	]) .then(results=>{ 
-		var  [thread,comments] = results;
+		Thread.find({_id: id}).lean(), 
+		Comment.find({threadId: id}).lean(), 
+	]).then(results=> {
+		var { thread, comments } = results;
 		results[0][0].date = pipeDate(results[0][0].date);
 		for (var i in results[1])
 			results[1][i].date = pipeDate(results[1][i].date);
@@ -34,7 +34,7 @@ exports.threadGet = (req,res) => {
 }
 
 exports.threadsGet = (req,res) => {
-	threadModel.Thread.find().lean().then(results => {
+	Thread.find().lean().then(results => {
 		for (var result of results) {
 			result.date = pipeDate(result.date);
 		}

@@ -11,7 +11,7 @@ $(document).ready(function() {
 					password: $(".password").val()
 				}
 			}).done( (result) => {
-				if(result.token)
+				if (result.token)
 					localStorage.setItem("x-access-token", result.token);
 				else
 					alert(result.message);
@@ -37,7 +37,7 @@ $(document).ready(function() {
 		}
 	})
 
-	if(location.pathname.includes("/thread/")) {
+	if (location.pathname.includes("/thread/")) {
 		CKEDITOR.replace( "editor1" );
 
 		$(".send").click( function() {
@@ -47,7 +47,9 @@ $(document).ready(function() {
 					method: "POST",
 					data: {
 						comment: CKEDITOR.instances.editor1.getData(),
-						id: $(this).data("id")
+						id: $(this).data("id"),
+						toUserId: $(".replyBlock").data("id")
+
 					},
 					headers: {
 						"x-access-token": localStorage.getItem("x-access-token")
@@ -60,6 +62,13 @@ $(document).ready(function() {
 		})
 	}
 
+	$(".reply").click( function () {
+		$(".to, .replyBlock").addClass("swap");
+		$(".replyBlock").text($(this).data("name")).attr("data-id",$(this).data("id"));
+	})
 	
-	
+	$(".replyBlock").click( function () {
+		
+	})
+
 });

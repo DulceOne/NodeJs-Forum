@@ -7,5 +7,5 @@ const commentSchema = mongoose.Schema({
 	author: String
 });
 
-exports.Comment = mongoose.model("Comment",commentSchema);
+module.exports = mongoose.model("Comment",commentSchema);
  

@@ -12,7 +12,6 @@
 </head>
 <body>
     <%-include("header.ejs")%>
-
     <div class="thread">
         <div class="title"><%=thread[0][0].title%></div>
         <div class="content"><%=thread[0][0].content%></div>
@@ -20,12 +19,20 @@
         <div class="title"><%=thread[0][0].title%></div>
 
         <textarea name="editor1" id="editor1" rows="10" cols="80"></textarea>
-        <div class="send" data-id="<%=thread[0][0]._id%>">Comment</div>
+        <div class="wrapper">
+            <div class="send" data-id="<%=thread[0][0]._id%>">Comment</div>
+            <div class="to">to: </div>
+            <div class="replyBlock"></div>
+        </div>
         <%for(i in thread[1]){%>
             <div class="comment">
-                <div><%=thread[1][i].author%></div>
-                <div><%=thread[1][i].date%></div>
-                <div><%=thread[1][i].content%></div>
+                <div><%-thread[1][i].author%></div>
+                <div><%-thread[1][i].date%></div>
+                <div><%-thread[1][i].content%></div>
+                <div class="navbar">
+                    <div class="reply" data-id="<%-thread[1][i]._id%>" data-name="<%-thread[1][i].author%>">Reply</div>
+                    <div class="share">Share</div>
+                </div>
             </div>
         <%}%>
     </div>

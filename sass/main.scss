@@ -73,14 +73,10 @@ header {
         display: flex;
         flex-wrap: wrap;
         padding: 10px;
-        border-width: 1px;
-        border-style: solid;
-        border-color:transparent;
+        border-bottom: 1px solid rgba(0,0,0,.4);
         
         &:hover {
-            border-width: 1px;
-            border-style: solid;
-            border-color: rgb(49, 49, 49);
+            box-shadow: 0px 0px 1px 1px #0079d3;
         }
         
         .logo {
@@ -110,26 +106,74 @@ header {
 .thread {
     padding: 10px 15px;
     margin-bottom: 20px;
+
     #cke_editor1 {
         margin-top: 10px;
     }
 
-    .send {
-        border: 1px solid rgba(0, 0, 0, 0.3);
-        border-radius: 4px;
-        display: inline-flex;
-        align-items: center;
-        padding: 5px 10px;
-        color: #0079d3;
-        cursor: pointer;
-        margin-top: 10px;
-        transition: all .4s;
-        text-transform: uppercase;
+    .wrapper{
+        display: flex;
+        flex-wrap: wrap;
+        padding: 0;
 
-        &:hover {
-            background: #0079d3;
-            color: white;
+        .close {
+            display: none;
         }
+
+        .send {
+            border: 1px solid rgba(0, 0, 0, 0.3);
+            border-radius: 4px;
+            display: inline-flex;
+            align-items: center;
+            padding: 5px 10px;
+            color: #0079d3;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: all .4s;
+            text-transform: uppercase;
+
+            &:hover {
+                background: #0079d3;
+                color: white;
+            }
+        }
+
+        .to {
+            display: none;
+            margin-left: 10px;
+            padding-top: 10px;
+            align-items: center;
+            color: rgba(0,0,0,.4);
+        }
+
+        .replyBlock {
+            padding: 5px 15px;
+            border-radius: 4px;
+            display: none;
+            margin-top: 10px;
+            margin-left: 10px;
+            align-items: center;
+            color: white;
+            background: #2ecc71;
+            border: 1px solid rgba(0, 0, 0, 0.3);
+            font-size: 14px;
+            position: relative;
+            cursor: pointer;
+
+            // .close {
+            //     position: absolute;
+            //     cursor: pointer;
+            //     color: tomato;
+            //     right: 5px;
+            //     top:3px;
+            //     font-size: 15px;
+            //     font-weight: 600;
+            // }
+        }
+    }
+
+    .swap {
+        display: flex!important;
     }
 
     .comment {
@@ -139,6 +183,19 @@ header {
         border-radius: 4px;
         margin-top: 10px;
         padding: 10px;
+
+        .navbar {
+            display: flex;
+
+            .reply {
+                cursor: pointer;
+            }
+
+            .share {
+                margin-left: 10px;
+                cursor: pointer;
+            }
+        }
     }
 }
 

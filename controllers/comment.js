@@ -6,11 +6,13 @@ exports.comentAdd = (req, res) => {
 		content:req.body.comment,
 		author: req.user.name,
 		threadId:req.body.id,
-		date:new Date
-		// toUserId:req.body.toUserId
+		date:new Date,
+		toUserId:req.body.toUserId
 	}
 
-	new commentModel.Comment(comment).save().then(result =>{
+	console.log(comment);
+
+	new commentModel(comment).save().then(result => {
 		res.send({message:"Сomment successfully added"});
 	})
 }
