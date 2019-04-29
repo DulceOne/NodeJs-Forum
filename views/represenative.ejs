@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
+	<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script> -->
+	<!-- <script src="../js/html2canvas.min.js"></script> -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/canvas2image@1.0.5/canvas2image.min.js"></script> -->
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <div class="wrapper">
+            <div class="images">
+                <img class="logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Elon_Musk_2015.jpg/267px-Elon_Musk_2015.jpg">
+                <img class="clogo" src="https://img.1kr.ua/place_files/1_188x250_1249_2cdbeeabc31c4a85f96738731d4c6382silpo_logo.jpg">
+            </div>
+            <div class="block">
+                <div class="name">Иван Маск <br> Ривович</div>
+                <div class="slogan">
+                    <div class="company">Сільпо</div>
+                    <div class="text">Мережа продовольчо-промислових супермаркетів</div>
+                </div>
+                <div class="status">Финансовый консультант</div>
+
+                <div class="icons">
+                  <img src="https://flybc.co/assets/img/card_icon_mail.png" class="mail">
+                  <img src="https://flybc.co/assets/img/card_icon_facebook.png" class="fb">
+                  <img src="https://flybc.co/assets/img/card_icon_twitter.png" class="tw">
+                  <img src="https://flybc.co/assets/img/card_icon_vk.png" class="vk">
+                  <img src="https://flybc.co/assets/img/card_icon_linkedin.png" class="linked_in">
+                  <img src="https://flybc.co/assets/img/card_icon_instagram.png" class="instagram">
+                  <img src="https://flybc.co/assets/img/card_icon_youtube.png" class="youtube">
+                  <img src="https://flybc.co/assets/img/card_icon_web.png" class="web">
+                  <img src="https://flybc.co/assets/img/card_icon_phone.png" class="phone">
+                  <img src="https://flybc.co/assets/img/card_icon_skype.png" class="skype">
+                  <img src="https://flybc.co/assets/img/card_icon_map.png" class="map">
+                </div>
+                <div class="btn">Нажмите для просмотра контактов</div>
+            </div>
+        </div>
+        <div class="tag">Цифровая визитка <b>Fly Card</b></div>
+    </div>
+
+	<script>
+			// $(document).ready(function() {
+			// 	console.log("ready");
+			// 	var elem = $(".container").get(0);
+			// 	var lebar = "600";
+			// 	var tinggi = "400";
+			// 	var type = "png";
+			// 	var filename = "mail";
+			// 	html2canvas(elem).then(function(canvas) {
+			// 		var canWidth = canvas.width;
+			// 		var canHeight = canvas.height;
+			// 		var img = Canvas2Image.convertToImage(canvas,canWidth,canHeight);
+			// 		Canvas2Image.saveAsImage(canvas,lebar,tinggi,type,filename);
+			// 	})
+			// })
+	</script>
+    <style>
+      /* line 1, ../sass/represenative.scss */
+body {
+  padding: 0px;
+  font-family: 'Lato', sans-serif;
+  width: fit-content;
+  margin: auto;
+}
+
+/* line 7, ../sass/represenative.scss */
+.container {
+  width: 520px;
+  border: 1px solid rgba(237, 239, 241, 0.5);
+  border-radius: 6px;
+  margin-top: 50px;
+  margin-left: 50px;
+  display: flex;
+  flex-direction: column;
+}
+/* line 17, ../sass/represenative.scss */
+.container .wrapper {
+  display: -webkit-box;
+  display: flex;
+
+  height: 237px;
+  overflow: hidden;
+}
+/* line 21, ../sass/represenative.scss */
+.container .wrapper .images {
+  width: 137px;
+  flex: 0 137px;
+}
+/* line 24, ../sass/represenative.scss */
+.container .wrapper .images .logo {
+  width: 100%;
+  height: 192px;
+  display: block;
+}
+/* line 29, ../sass/represenative.scss */
+.container .wrapper .images .clogo {
+  width: 100%;
+  height: 47px;
+  border-right: 1px solid rgba(237, 239, 241, 0.5);
+}
+/* line 36, ../sass/represenative.scss */
+.container .wrapper .block {
+  flex: 1 auto;
+  -webkit-box-flex: 1;
+}
+/* line 38, ../sass/represenative.scss */
+.container .wrapper .block .name {
+  width: 200px;
+  font-weight: bold;
+  padding: 5px 20px;
+}
+/* line 44, ../sass/represenative.scss */
+.container .wrapper .block .slogan {
+  padding: 10px 20px;
+  background: #edeff1;
+}
+/* line 47, ../sass/represenative.scss */
+.container .wrapper .block .slogan .company {
+  font-weight: bold;
+}
+/* line 50, ../sass/represenative.scss */
+.container .wrapper .block .slogan .text {
+  font-size: 12px;
+}
+/* line 55, ../sass/represenative.scss */
+.container .wrapper .block .status {
+  padding: 13px 20px;
+  font-size: 14px;
+  height: 17px;
+  overflow: hidden;
+  line-height: 1;
+  width: 300px;
+  padding-left: 20px;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+/* line 68, ../sass/represenative.scss */
+.container .wrapper .icons {
+  display: -webkit-box;
+  -webkit-box-pack: justify;
+  -webkit-box-align: center;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 20px;
+  box-sizing: border-box;
+
+  /* height: 20px;
+  padding: 23px 20px;
+  align-items: center;
+  display: flex;
+  justify-content: space-between; */
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+/* line 76, ../sass/represenative.scss */
+.container .wrapper .icons img {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+  height: 20px;
+  opacity: 0.2;
+  cursor: pointer;
+  display: block;
+}
+/* line 86, ../sass/represenative.scss */
+.container .wrapper .btn {
+  text-align: center;
+  color: #0EBED9;
+  height: 47px;
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+  cursor: pointer;
+      display: -webkit-box;
+    -webkit-box-pack: center;
+    -webkit-box-align: center;
+}
+/* line 97, ../sass/represenative.scss */
+.container .tag {
+  color: rgba(0, 0, 0, 0.3);
+  text-align: center;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px;
+  border: 1px solid rgba(237, 239, 241, 0.5);
+}
+
+    </style>
+</body>
+</html>

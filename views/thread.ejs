@@ -23,18 +23,30 @@
             <div class="send" data-id="<%=thread[0][0]._id%>">Comment</div>
             <div class="to">to: </div>
             <div class="replyBlock"></div>
-        </div>
-        <%for(i in thread[1]){%>
-            <div class="comment">
-                <div><%-thread[1][i].author%></div>
-                <div><%-thread[1][i].date%></div>
-                <div><%-thread[1][i].content%></div>
-                <div class="navbar">
-                    <div class="reply" data-id="<%-thread[1][i]._id%>" data-name="<%-thread[1][i].author%>">Reply</div>
-                    <div class="share">Share</div>
-                </div>
-            </div>
+    </div>
+        
+
+        <%function getComment(id,toUser,comment) {%>
+            <%for(i in thread[1]) {%>
+                <%if(i <= thread[1].length) {%>
+                    <%if(thread[1][i].toUserId == id) {%>
+                        <div class="comment">
+                            <div><%-thread[1][i].author%></div>
+                            <div><%-thread[1][i].date%></div>
+                            <div><%-thread[1][i].content%></div>
+                            <div class="navbar">
+                                <div class="reply" data-id="<%-thread[1][i]._id%>" data-name="<%-thread[1][i].author%>">Reply</div>
+                                <div class="share">Share</div>
+                            </div>
+                            <%getComment(thread[1][i]._id,thread[1][i].toUserId,thread[1]);%>
+                        </div>
+                    <%}%>
+                <%}else {%>
+                    <%break;%>
+                <%}%>
+            <%}%>
         <%}%>
+        <%getComment();%>
     </div>
 </body>
 </html>

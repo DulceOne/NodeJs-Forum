@@ -41,7 +41,7 @@ $(document).ready(function() {
 		CKEDITOR.replace( "editor1" );
 
 		$(".send").click( function() {
-			if (localStorage.getItem("x-access-token")){
+			if (localStorage.getItem("x-access-token")) {
 				$.ajax({
 					url: `${APIurl}/comment/add`,
 					method: "POST",

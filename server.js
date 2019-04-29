@@ -18,5 +18,5 @@ app.set("view engine", "ejs");
 app.use(cookieParser());
 const routes = require("./routes")(app);
 app.listen(port,function() {
-    console.log(`server started: ${port}`);
+	console.log(`server started: ${port}`);
 })
