@@ -11,13 +11,26 @@ $(document).ready(function() {
 					password: $(".password").val()
 				}
 			}).done( (result) => {
-				if (result.token)
+				if (result.token) {
 					localStorage.setItem("x-access-token", result.token);
+					location.reload();
+				}
 				else
 					alert(result.message);
 			})
 		}
 	}) 
+
+	$(".signout").click( ()=> {
+		localStorage.removeItem("x-access-token");
+		location.reload();
+	})
+
+	if (localStorage.getItem("x-access-token"))
+		$(".wrapper .nav .signin, .wrapper .nav .signup, .wrapper .nav .login, .wrapper .nav .password").addClass("hide");
+
+	else
+		$(".wrapper .nav .signout").addClass("hide");
 
 	$(".modal .signup .close, .wrapper .nav .signup").click( () => {
 		$(".modal").toggle("show");

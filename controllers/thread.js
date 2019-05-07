@@ -47,7 +47,7 @@ exports.threadsGet = (req,res) => {
 function pipeDate(dt) {
 	var date = new Date(dt);
 	var day = zeroAdd(date.getUTCDate());
-	var month = zeroAdd(date.getUTCMonth()+1);
+	var month = zeroAdd(date.getUTCMonth() + 1);
 	var year = zeroAdd(date.getUTCFullYear());
 	var hours = zeroAdd(date.getUTCHours());
 	var minutes = zeroAdd(date.getUTCMinutes());
